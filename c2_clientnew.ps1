@@ -1452,7 +1452,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 if ($InfoOnConnect -eq '1'){
-    $infocall = ':hourglass: Getting system info - Paella v1.0 Started.. :hourglass:'
+    $infocall = ':shallow_pan_of_food: Getting system info - Paella v1.0 Started.. :shallow_pan_of_food:'
 }
 else{
     $infocall = 'Type `` Options `` in chat for commands list'

